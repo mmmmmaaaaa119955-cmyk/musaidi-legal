@@ -1,0 +1,98 @@
+/* مساعدي — صفحات قانونية ودعم. مشتقة من DESIGN.md: فحمي دافئ + عنبري واحد + Cairo. */
+:root {
+  --bg: #131110;
+  --surface: #1D1A17;
+  --surface-high: #272219;
+  --line: #322C24;
+  --text: #F2EDE4;
+  --text-dim: #9A9186;
+  --accent: #E8963E;
+  --accent-soft: #E8963E1F;
+  --on-accent: #1A130A;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #F7F2EA;
+    --surface: #FFFBF5;
+    --surface-high: #F1E9DD;
+    --line: #E3D8C8;
+    --text: #231E18;
+    --text-dim: #6B6156;
+    --accent: #B86A1C;
+    --accent-soft: #B86A1C1A;
+    --on-accent: #FFFFFF;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+
+header.top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line);
+  margin-bottom: 24px; flex-wrap: wrap;
+}
+.brand { font-weight: 700; font-size: 20px; color: var(--text); text-decoration: none; }
+.brand span { color: var(--accent); }
+nav.links { display: flex; gap: 4px; flex-wrap: wrap; }
+nav.links a {
+  color: var(--text-dim); text-decoration: none; font-weight: 600; font-size: 13px;
+  padding: 8px 12px; border-radius: 999px; min-height: 40px; display: inline-flex; align-items: center;
+}
+nav.links a:hover, nav.links a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+
+h1 { font-size: 26px; line-height: 1.35; margin: 0 0 8px; font-weight: 700; }
+h2 { font-size: 20px; line-height: 1.35; margin: 32px 0 8px; font-weight: 700; }
+h3 { font-size: 16px; line-height: 1.35; margin: 20px 0 6px; font-weight: 700; }
+p, li { color: var(--text); }
+.meta { color: var(--text-dim); font-size: 13px; margin: 0 0 16px; }
+a { color: var(--accent); }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.tile {
+  background: var(--surface); border-radius: 20px; padding: 18px 20px; margin: 16px 0;
+}
+.tile.high { background: var(--surface-high); }
+.tile > :first-child { margin-top: 0; }
+.tile > :last-child { margin-bottom: 0; }
+
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: start; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--text-dim); font-weight: 600; font-size: 13px; }
+.table-scroll { overflow-x: auto; }
+
+.lang-switch {
+  display: inline-flex; gap: 8px; margin: 0 0 8px;
+}
+.lang-switch a {
+  font-size: 13px; font-weight: 600; text-decoration: none; color: var(--text-dim);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 56px; padding: 0 28px; border-radius: 999px;
+  background: var(--accent); color: var(--on-accent); font-weight: 700; text-decoration: none;
+}
+
+.en { direction: ltr; text-align: left; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.en h1, .en h2, .en h3 { font-family: "Cairo", system-ui, sans-serif; }
+hr.split { border: 0; border-top: 1px solid var(--line); margin: 56px 0 24px; }
+
+footer.bottom { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--text-dim); font-size: 13px; }
+footer.bottom a { color: var(--text-dim); }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+
+code { font-size: 13px; overflow-wrap: anywhere; word-break: break-all; background: var(--surface-high); padding: 1px 6px; border-radius: 6px; }
+p, li, td { overflow-wrap: anywhere; }
